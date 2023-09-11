@@ -43,8 +43,8 @@ enum Operation {
     Divide(f64, f64)
 }
 
-fn calculate(values: Operation) -> f64 {
-    match values {
+fn calculate(task: Operation) -> f64 {
+    match task {
         Operation::Add(value_one, value_two) => value_one + value_two,
         Operation::Subtract(value_one, value_two) => {
             value_one - value_two
