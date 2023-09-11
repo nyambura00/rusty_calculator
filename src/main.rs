@@ -16,7 +16,7 @@ fn main() {
     io::stdout().flush().unwrap();
     io::stdin().read_line(&mut second_value).unwrap();
 
-    print!("Enter the desired operation(Either add, subtract, multiply, divide): ");
+    print!("Enter the desired operation([add, subtract, multiply, divide]): ");
     io::stdout().flush().unwrap();
     io::stdin().read_line(&mut calc_operation).unwrap();
 
@@ -28,7 +28,7 @@ fn main() {
         "subtract" => Operation::Subtract(first_value, second_value),
         "multiply" => Operation::Multiply(first_value, second_value),
         "divide" => Operation::Divide(first_value, second_value),
-        _ => panic!("Invalid operation")
+        _ => panic!("Invalid operation. Enter operation name in lower case")
     };
 
     let result = calculate(calc_operation);
@@ -54,7 +54,7 @@ fn calculate(values: Operation) -> f64 {
         },
         Operation::Divide(value_one, value_two ) => {
             if value_two == 0.0 {
-                eprintln!("Division by zero is not allowed.");
+                println!("Division by zero is not allowed.");
                 std::process::exit(1);
             }
             value_one / value_two
